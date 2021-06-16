@@ -25,7 +25,7 @@ jobs:
         with:
           push: true
           tags: fredericoaraujo/tests:hello
-          context: ${{ GITHUB_WORKSPACE }}/action-a
+          context: ${{ env.GITHUB_WORKSPACE }}/action-a
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
