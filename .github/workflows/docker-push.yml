@@ -23,7 +23,7 @@ jobs:
         with:
           push: true
           tags: fredericoaraujo/tests:hello
-          context: ${{ env.GITHUB_ACTION_PATH }}/../../action-a
+          context: ./action-a
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
