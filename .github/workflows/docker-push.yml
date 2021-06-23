@@ -42,7 +42,7 @@ jobs:
             fredericoaraujo/tests                      
           tags: |            
             type=edge,branch=master
-            type=match,branch=dev
+            type=match,pattern=dev
             #type=ref,event=branch
             type=ref,event=tag            
             type=ref,event=pr         
