@@ -43,7 +43,6 @@ jobs:
           tags: |            
             type=edge,branch=master
             type=match,pattern=dev
-            #type=ref,event=branch
             type=ref,event=tag            
             type=ref,event=pr         
             type=semver,pattern={{version}}
