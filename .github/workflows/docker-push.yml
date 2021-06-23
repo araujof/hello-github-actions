@@ -41,11 +41,10 @@ jobs:
           images: |
             fredericoaraujo/tests                      
           tags: |            
+            type=edge,branch=master
             type=ref,event=branch
             type=ref,event=tag            
-            type=ref,event=pr
-            type=match,pattern=master
-            type=edge,branch=dev
+            type=ref,event=pr         
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}       
