@@ -44,4 +44,6 @@ jobs:
           prerelease: contains(steps.tag_name.outputs.current_version, '-rc')
           draft: true
           files: |
-            ${{ steps.tag_name.outputs.release_assets }}
+            scripts/cpack/asset.deb
+            scripts/cpack/asset.rpm
+            scripts/cpack/asset.tar.gz
