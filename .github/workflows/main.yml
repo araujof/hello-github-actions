@@ -26,13 +26,12 @@ jobs:
       - name: Build Release Assets
         id: build_release_assets
         run: |
-          echo "##[set-output name=release_assets;] $(ls scripts/cpack/asset* | tr " " "\n")"          
+          echo "##[set-output name=deb;] $(ls scripts/cpack/asset* | tr " " "\n")"          
         shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
-        with:
-          validation_depth: 10
+        with:          
           version: ${{ steps.tag_name.outputs.current_version }}
           path: ./CHANGELOG.md      
       - name: Release
