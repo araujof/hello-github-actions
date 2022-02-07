@@ -23,13 +23,18 @@ jobs:
         run: |          
           GHREF=${GITHUB_REF#refs/tags/}; echo ::set-output name=current_version::${GHREF%-*}
         shell: bash
+      - name: Build Release Assets
+        id: build_release_assets
+        run: |
+          echo "##[set-output name=release_assets;] $(ls scripts/cpack/asset* | tr " " "\n")"          
+        shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_depth: 10
           version: ${{ steps.tag_name.outputs.current_version }}
-          path: ./CHANGELOG.md
+          path: ./CHANGELOG.md      
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
@@ -38,3 +43,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}          
           prerelease: contains(steps.tag_name.outputs.current_version, '-rc')
           draft: true
+          files: ${{ steps.tag_name.outputs.release_assets }}
