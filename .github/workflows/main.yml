@@ -9,3 +9,32 @@ jobs:
       - uses: ./action-a
         with:
           MY_NAME: "Mona"
+  release:    
+    needs: build    
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest    
+    permissions:
+      contents: write      
+    steps:      
+      - name: Checkout
+        uses: actions/checkout@v2     
+      - name: Get version from tag
+        id: tag_name
+        run: |          
+          GHREF=${GITHUB_REF#refs/tags/}; echo ::set-output name=current_version::${GHREF%-*}
+        shell: bash
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_depth: 10
+          version: ${{ steps.tag_name.outputs.current_version }}
+          path: ./CHANGELOG.md
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body: ${{ steps.changelog_reader.outputs.changes }}          
+          token: ${{ secrets.GITHUB_TOKEN }}          
+          prerelease: contains(steps.tag_name.outputs.current_version, '-rc')
+          draft: true
