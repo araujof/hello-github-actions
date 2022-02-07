@@ -47,19 +47,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Support for flat JSON schema
 
-## [0.2.2] - 2020-12-07
+## [0.3.0-rc1] - 2020-12-07
 
 ### Changed
 
 - Updated dependencies to latest `sf-apis`.
 
-## [0.2.1] - 2020-12-02
+## [1.0.2-rc1] - 2020-12-02
 
 ### Fixed
 
 - Fixes `sf.file.oid` and `sf.file.newoid` attribute mapping.
 
-## [0.2.0] - 2020-12-01
+## [1.0.1] - 2020-12-01
 
 ### Added
 
@@ -78,7 +78,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Fixes module names and package paths.
 
-## [0.1.0] - 2020-10-30
+## [1.0.0] - 2020-10-30
 
 ### Added
 
