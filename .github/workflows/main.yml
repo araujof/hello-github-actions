@@ -43,4 +43,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}          
           prerelease: contains(steps.tag_name.outputs.current_version, '-rc')
           draft: true
-          files: ${{ steps.tag_name.outputs.release_assets }}
+          files: |
+            ${{ steps.tag_name.outputs.release_assets }}
