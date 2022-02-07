@@ -26,7 +26,7 @@ jobs:
       - name: Build Release Assets
         id: build_release_assets
         run: |
-          echo "##[set-output name=deb;] $(ls scripts/cpack/asset* | tr " " "\n")"          
+          echo "this is a test" > scripts/cpack/asset.test
         shell: bash
       - name: Get Changelog Entry
         id: changelog_reader
@@ -44,4 +44,5 @@ jobs:
           draft: true
           files: |
             scripts/cpack/asset.deb
-            scripts/cpack/asset.rpm            
+            scripts/cpack/asset.rpm    
+            scripts/cpack/asset.test        
