@@ -60,7 +60,7 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=ref,event=pr
-            type=match,pattern=\d.\d.\d,value=latest
+            type=match,pattern=\d.\d.\d
       - name: tags
         run: echo "${{ steps.meta.outputs.tags }}"
       - name: labels
