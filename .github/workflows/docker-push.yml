@@ -53,8 +53,8 @@ jobs:
             fredericoaraujo/tests
             ghcr.io/${{ github.repository }}
             ghcr.io/araujof/tests
-          flavor: |
-            latest=false
+          # flavor: |
+          #   latest=false
           tags: |
             type=edge,branch=master
             type=ref,event=branch
