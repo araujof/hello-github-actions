@@ -19,6 +19,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 
 - Update(ubi): Bumped UBI version to 8.4-211.
 
+## [0.5.3] - 2022-06-20
+
+### Added
+
+- Support for pluggable export protocols
+- Elastic Common Schema (ECS) export format and Elasticsearch integration
+- Export to IBM Findings API
+- MITRE ATT&CK ttp tagging policy
+- Support for pipeline forking (tee feature)
+- Custom S3 prefix to Findings exporter
+
 ## [0.3.0] - 2021-09-20
 
 ### Added
