@@ -58,8 +58,8 @@ jobs:
             type=ref,event=branch
             type=match,pattern=\d.\d.\d
             type=ref,event=pr
-            type=sha
-            type=sha,format=long
+            type=sha,prefix=
+            type=sha,format=long,prefix=
       - name: tags
         run: echo "${{ steps.meta.outputs.tags }}"
       - name: labels
