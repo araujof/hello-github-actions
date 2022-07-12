@@ -56,7 +56,7 @@ jobs:
           tags: |
             type=edge,branch=master
             type=ref,event=branch
-            type=match,pattern=\d.\d.\d
+            type=match,pattern=^\d.\d.\d$
             type=ref,event=pr
             type=sha,prefix=
             type=sha,format=long,prefix=
